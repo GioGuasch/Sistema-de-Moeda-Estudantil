@@ -9,13 +9,15 @@ Natalie Santana Dias Abreu
 
 Paloma Dias de Carvalho
 
-# Professor
+## Professor
 João Paulo Carneiro Aramuni
 
-# Caso de Uso
+## Caso de Uso
 
-# Histórias de Usuário
-# Aluno
+<img width="946" height="687" alt="Diagrama - Caso de Uso - Sistema de Moeda Estudantil" src="https://github.com/user-attachments/assets/da233e11-df65-4937-bb0d-baeb830aab52" />
+
+## Histórias de Usuário
+### Aluno
 HS01 - Cadastro
    - Como aluno, quero me cadastrar informando meus dados pessoais e escolher minha instituição de ensino, para poder participar do sistema.
 
@@ -34,7 +36,7 @@ HS05 - Trocar moedas por vantagens
 HS06 - Receber cupom por email
   - Como aluno, quero receber por email o cupom da vantagem que resgatei, para utilizá-lo presencialmente.
 
-# Professor
+### Professor
 HS07 - Cadastro prévio
   - Como professor, quero ter meus dados cadastrados pela instituição, para que eu possa utilizar o sistema.
 
@@ -47,7 +49,7 @@ HS09 - Enviar moedas aos alunos
 HS10 - Consultar saldo e extrato
   - Como professor, quero visualizar meu saldo e histórico de transações, para acompanhar as moedas já distribuídas.
 
-# Empresa Parceira
+### Empresa Parceira
 
 HS11 - Cadastro da empresa
   - Como empresa parceira, quero me cadastrar no sistema, para poder oferecer vantagens aos alunos.
@@ -58,6 +60,6 @@ HS12 - Cadastro de vantagens
 HS13 - Receber notificação de resgate
   - Como empresa parceira, quero receber por email o cupom de resgate com código único, para validar a troca realizada pelo aluno.
 
-# Acesso ao sistema (para todos os usuários)
+### Acesso ao sistema (para todos os usuários)
 HS14 - Login e autenticação
   - Como usuário (aluno, professor ou empresa), quero ter login e senha para acessar o sistema, garantindo segurança e personalização.
