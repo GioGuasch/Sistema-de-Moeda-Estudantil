@@ -63,3 +63,13 @@ HS13 - Receber notificação de resgate
 ### Acesso ao sistema (para todos os usuários)
 HS14 - Login e autenticação
   - Como usuário (aluno, professor ou empresa), quero ter login e senha para acessar o sistema, garantindo segurança e personalização.
+
+## Diagrama de Classes
+
+<img alt="Diagrama - Classes - Sistema de Moeda Estudantil" src="https://github.com/GioGuasch/Sistema-de-Moeda-Estudantil/blob/main/01.Documentacao/Diagrama_de_Classes.png" />
+
+## Diagrama de Componentes
+
+<img alt="Diagrama - Componentes - Sistema de Moeda Estudantil" src="https://github.com/GioGuasch/Sistema-de-Moeda-Estudantil/blob/main/01.Documentacao/Diagrama_de_Componentes.png" />
+
+
