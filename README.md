@@ -14,7 +14,7 @@ João Paulo Carneiro Aramuni
 
 ## Caso de Uso
 
-<img width="946" height="687" alt="Diagrama - Caso de Uso - Sistema de Moeda Estudantil" src="https://github.com/user-attachments/assets/da233e11-df65-4937-bb0d-baeb830aab52" />
+<img width="947" height="686" alt="image" src="https://github.com/user-attachments/assets/e02d940f-4720-46b6-ba8c-0ca4e2b8be79" />
 
 ## Histórias de Usuário
 ### Aluno
