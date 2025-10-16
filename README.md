@@ -88,4 +88,18 @@ HS18 - Login e autenticação
 
 <img alt="Diagrama - Componentes - Sistema de Moeda Estudantil" src="https://github.com/GioGuasch/Sistema-de-Moeda-Estudantil/blob/main/01.Documentacao/Diagrama_de_Componentes.png" />
 
+## Como executar o Banco de Dados
 
+Para usar o banco do Sistema de Moeda Estudantil, siga os passos abaixo:
+
+01. Abra o phpMyAdmin (ou outro cliente MySQL da sua preferência).
+
+02. Crie um banco de dados com o nome sistema_moeda_estudantil.
+
+03. Vá até a aba Importar.
+
+03. Clique em Escolher arquivo e selecione o arquivo sistema_moeda_estudantil.sql que está na pasta 03. Codigos/database/.
+
+04. Clique em Executar e aguarde a importação.
+
+Depois disso, todas as tabelas e dados de exemplo estarão disponíveis para uso.
