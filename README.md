@@ -1,15 +1,15 @@
-# Sistema de Moeda Estudantil
+# Sistema de Moeda Estudantil 🪙
 O Sistema de Moeda Estudantil tem como objetivo reconhecer e valorizar o mérito dos alunos por meio de uma moeda virtual. Professores recebem um saldo de moedas a cada semestre e podem distribuí-las aos alunos como forma de incentivo por desempenho, comportamento e participação.
 Os alunos podem acumular essas moedas e trocá-las por benefícios em empresas parceiras, como descontos em restaurantes, mensalidades ou materiais. O sistema permite cadastro de alunos, professores e empresas, controle de saldo e extrato de transações, além do envio de notificações e cupons por e-mail.
 
-## Integrantes
+## Integrantes 👩‍💻
 Giovanna Lima Torres Guasch
 
 Natalie Santana Dias Abreu
 
 Paloma Dias de Carvalho
 
-## Professor
+## Professor 🧔
 João Paulo Carneiro Aramuni
 
 ## Caso de Uso
