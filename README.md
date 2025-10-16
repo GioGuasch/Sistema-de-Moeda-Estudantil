@@ -76,6 +76,10 @@ HS17 - Gerar relatório
 HS18 - Login e autenticação
   - Como usuário (aluno, professor ou empresa), quero ter login e senha para acessar o sistema, garantindo segurança e personalização.
 
+## Diagrama Entidade Relacionamento
+
+![Diagrama_Entidade_Relacionamento_Sistema_Moedas](https://github.com/user-attachments/assets/909a93bd-b3cd-4772-b499-ce7e8af01f9a)
+
 ## Diagrama de Classes
 
 <img alt="Diagrama - Classes - Sistema de Moeda Estudantil" src="https://github.com/GioGuasch/Sistema-de-Moeda-Estudantil/blob/main/01.Documentacao/Diagrama_de_Classes.png" />
