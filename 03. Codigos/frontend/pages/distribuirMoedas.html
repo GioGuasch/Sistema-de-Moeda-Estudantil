@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Distribuir moedas</title>
+  <link rel="stylesheet" href="../styles/distribuirMoedas.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <img src="../img/moeda.png" alt="Moeda" class="icone-moeda">
+    </div>
+    <nav>
+      <a href="inicioProfessor.html" class="active">Início</a>
+      <a href="distribuirMoedas.html">Distribuir moedas</a>
+      <a href="extratoProfessor.html">Extrato</a>
+    </nav>
+    <div class="user-info">
+      <a href="perfilProfessor.html" class="active"><i class="fa-solid fa-user"></i></a>
+    </div>
+  </header>
+
+  <main>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Digite o nome do aluno" />
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+
+    <div class="nova-distribuicao">
+      <button id="novaDistBtn">+ Nova distribuição</button>
+    </div>
+
+    <div class="titulo">
+      <h3>Últimos alunos pesquisados</h3>
+    </div>
+
+    <section id="vantagensContainer" class="cards-container">
+      <div class="card">
+        <img src="../img/pessoa1.png" alt="">
+        <h3>Luiz Amaral</h3>
+        <button class="btnDistribuir">Distribuir novamente</button>
+      </div>
+
+      <div class="card">
+        <img src="../img/pessoa2.png" alt="">
+        <h3>Amanda Nunes</h3>
+        <button class="btnDistribuir">Distribuir novamente</button>
+      </div>
+
+      <div class="card">
+        <img src="../img/pessoa2.png" alt="">
+        <h3>Paloma Carvalho</h3>
+        <button class="btnDistribuir">Distribuir novamente</button>
+      </div>
+
+      <div class="card">
+        <img src="../img/pessoa1.png" alt="">
+        <h3>Pedro Reis</h3>
+        <button class="btnDistribuir">Distribuir novamente</button>
+      </div>
+
+      <div class="card">
+        <img src="../img/pessoa2.png" alt="">
+        <h3>Sofia Peixoto</h3>
+        <button class="btnDistribuir">Distribuir novamente</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    @Sistema de Moeda Estudantil
+  </footer>
+
+  <script src="../js/distribuirMoedas.js"></script>
+
+</body>
+
+</html>
