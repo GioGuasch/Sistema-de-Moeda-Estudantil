@@ -78,7 +78,7 @@ HS18 - Login e autenticação
 
 ## Diagrama Entidade Relacionamento
 
-![Diagrama_Entidade_Relacionamento_Sistema_Moedas](https://github.com/user-attachments/assets/909a93bd-b3cd-4772-b499-ce7e8af01f9a)
+![Diagrama_Entidade_Relacionamento_Sistema_Moedas](https://github.com/GioGuasch/Sistema-de-Moeda-Estudantil/blob/main/01.Documentacao/Diagrama_entidade_relacionamento.png)
 
 ## Diagrama de Classes
 
