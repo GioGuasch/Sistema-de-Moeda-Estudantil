@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link rel="stylesheet" href="../styles/login.css" />
+</head>
+
+<body>
+  <div class="main-content">
+    <div class="login-section">
+      <div class="login-box">
+        <img src="../img/moeda.png" alt="Moedas" class="icone" />
+        <h1>Seja bem-vindo(a)</h1>
+        <p>Faça seu login</p>
+
+        <form id="formLogin" method="POST" action="../php/login.php">
+          <label for="tipo">Tipo de usuário:</label>
+          <select id="tipo" name="tipoUsuario">
+            <option value="aluno">Aluno</option>
+            <option value="professor">Professor</option>
+            <option value="empresa">Empresa</option>
+          </select>
+
+          <label for="email">Email/CPF:</label>
+          <input type="text" id="email" name="emailCpf" placeholder="Digite seu email ou CPF" required />
+
+          <label for="senha">Senha:</label>
+          <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required />
+
+          <button type="submit" id="entrar">Entrar</button>
+        </form>
+
+        <div class="links">
+          <a href="esqueceuSenha.html">Esqueceu a senha?</a>
+          <a href="cadastro.html">Cadastrar-me</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="image-section">
+      <img src="../img/carrossel2.png" alt="Imagem de fundo de login" />
+    </div>
+  </div>
+</body>
+<script src="../js/login.js"></script>
+
+</html>

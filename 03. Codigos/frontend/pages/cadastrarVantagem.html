@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastrar Vantagem</title>
+  <link rel="stylesheet" href="../styles/cadastrarVantagem.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <img src="../img/moeda.png" alt="Moeda" class="icone-moeda">
+    </div>
+    <nav>
+      <a href="inicioEmpresa.html" class="active">Início</a>
+      <a href="cadastrarVantagem.html">Cadastrar Vantagem</a>
+      <a href="conferirResgates.html">Conferir resgates</a>
+    </nav>
+    <div class="user-info">
+      <a href="perfilEmpresa.html" class="active"><i class="fa-solid fa-user"></i></a>
+    </div>
+  </header>
+
+  <main>
+    <div class="nova-distribuicao">
+      <button id="novaVantagemBtn">+ Nova vantagem</button>
+    </div>
+
+    <section id="vantagensContainer" class="cards-container">
+    </section>
+  </main>
+
+  <footer>
+    @Sistema de Moeda Estudantil
+  </footer>
+
+  <div id="modalNovaVantagem" class="modal" style="display:none;">
+    <div class="modal-content">
+      <h2>Cadastrar Nova Vantagem</h2>
+      <form id="formVantagem" enctype="multipart/form-data">
+        <label>Nome da Vantagem:</label>
+        <input type="text" name="nome" required>
+
+        <label>Valor (moedas):</label>
+        <input type="number" name="valor" required>
+
+        <label>Imagem da Vantagem:</label>
+        <input type="file" name="img" accept="image/*" required>
+
+        <div class="botoes">
+          <button type="button" id="cancelarBtn">Cancelar</button>
+          <button type="submit" id="salvarBtn">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../js/cadastrarVantagem.js"></script>
+</body>
+
+</html>
