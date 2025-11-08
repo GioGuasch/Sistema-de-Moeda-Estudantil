@@ -88,6 +88,11 @@ HS18 - Login e autenticação
 
 <img alt="Diagrama - Componentes - Sistema de Moeda Estudantil" src="https://github.com/GioGuasch/Sistema-de-Moeda-Estudantil/blob/main/01.Documentacao/Diagrama_de_Componentes.png" />
 
+## Diagrama de Sequências
+
+<img alt="Diagrama - Sequências - Sistema de Moeda Estudantil" src="" />
+
+
 ## 🗄️ Como executar o Banco de Dados
 
 Para usar o banco do Sistema de Moeda Estudantil, siga os passos abaixo:
