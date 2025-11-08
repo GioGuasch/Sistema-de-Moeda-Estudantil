@@ -104,40 +104,16 @@ Para usar o banco do Sistema de Moeda Estudantil, siga os passos abaixo:
 
 Depois disso, todas as tabelas e dados de exemplo estarão disponíveis para uso.
 
-## 🐳 Executando com Docker
+⚙️ Backend (PHP) → http://localhost
 
-Para facilitar o uso do sistema completo, banco, backend e frontend, o projeto já possui configuração Docker.
-
-Isso permite rodar tudo com um único comando, sem precisar instalar MySQL, Node ou dependências locais.
-
-No terminal, dentro da pasta 03. Codigos/, execute:
-
-docker-compose up --build
-
-
-Serviços disponíveis:
-
-🗄️ Banco de Dados (MySQL) → localhost:3306
-
-Usuário: root
-
-Senha: root
-
-Banco: sistema_moeda_estudantil
-
-⚙️ Backend (Node/Express) → http://localhost:3001
-
-💻 Frontend (React/Vite) → http://localhost:5173
+💻 Frontend (HTML, CSS, JS) → http://localhost
 
 💡 Dica: o banco de dados é importado automaticamente a partir do arquivo sistema_moeda_estudantil.sql localizado em 03. Codigos/database/.
-Se precisar reimportar, rode:
 
-docker-compose down -v
-docker-compose up --build
 
 ## ⚙️ Variáveis de Ambiente
 
-As variáveis já estão configuradas no arquivo docker-compose.yml, mas podem ser ajustadas conforme necessidade.
+As variáveis podem ser ajustadas conforme necessidade: 
 
 Backend
 DB_HOST=db
@@ -147,75 +123,29 @@ DB_PASSWORD=root
 DB_NAME=sistema_moeda_estudantil
 PORT=3001
 
-Frontend
-VITE_API_URL=http://localhost:3001
+## 🚀 Como Rodar Localmente
 
-
-🔒 Crie um arquivo .env.example para documentar suas variáveis, mas não suba o .env real no repositório.
-
-## 🚀 Como Rodar Localmente (sem Docker)
-
-Se preferir executar manualmente, siga os passos abaixo:
+Para executar localmente, siga os passos abaixo:
 
 1️⃣ Banco de Dados
+Faça o passo de execução do banco de dados que está logo no começo dessa instrutução. 
 
-Abra o phpMyAdmin ou outro cliente MySQL.
-
-Crie o banco com o nome sistema_moeda_estudantil.
-
-Vá na aba Importar e carregue o arquivo sistema_moeda_estudantil.sql da pasta 03. Codigos/database/.
-
-Clique em Executar.
 
 2️⃣ Backend
 
-Vá até a pasta:
+Coloque a pasta "cd 03. Codigos/backend"  do projeto da pasta WWWW 
+Abra uma aba no google e busque por localhost
+E abra o projeto desejado. 
 
-cd 03. Codigos/backend
-
-
-Instale as dependências:
-
-npm install
-
-
-Crie um arquivo .env com suas credenciais do MySQL:
-
-DB_HOST=localhost
-DB_PORT=3306
-DB_USER=root
-DB_PASSWORD=root
-DB_NAME=sistema_moeda_estudantil
-PORT=3001
-
-
-Inicie o servidor:
-
-npm start
-
-
-A API ficará disponível em: http://localhost:3001
+E pronto, está rodando o back!! 
 
 3️⃣ Frontend
 
-Vá até a pasta:
+Vá até a pasta: 'cd 03. Codigos/frontend', coloque-a dentro da pasta WWW
+Abra uma aba no google e busque por localhost
+E abra o projeto desejado. 
 
-cd 03. Codigos/frontend
-
-
-Instale as dependências:
-
-npm install
+E pronto, está rodando o front!! 
 
 
-Crie um arquivo .env com a URL da API:
-
-VITE_API_URL=http://localhost:3001
-
-
-Inicie o front:
-
-npm run dev
-
-
-O sistema abrirá em http://localhost:5173
+O sistema abrirá em http://localhost
