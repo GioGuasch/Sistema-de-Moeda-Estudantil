@@ -90,7 +90,17 @@ HS18 - Login e autenticação
 
 ## Diagrama de Sequências
 
-<img alt="Diagrama - Sequências - Sistema de Moeda Estudantil" src="" />
+01. 
+<img alt="Fluxo Aluno Resgata Vantagem" src="https://github.com/GioGuasch/Sistema-de-Moeda-Estudantil/blob/main/01.Documentacao/Diagrama-Fluxo_Aluno_Resgata_Vantagem.jpg" />
+
+02.
+<img alt="Fluxo Empresa Cadastra Vantagem" src="https://github.com/GioGuasch/Sistema-de-Moeda-Estudantil/blob/main/01.Documentacao/Diagrama-Fluxo_Empresa_Cadastras_Vantagem.jpg" />
+
+03.
+<img alt="Fluxo Login de Usuario" src="https://github.com/GioGuasch/Sistema-de-Moeda-Estudantil/blob/main/01.Documentacao/Diagrama-Fluxo_Login_Usuario.jpg" />
+
+04.
+<img alt="Fluxo Professor Distribui Moeda" src="https://github.com/GioGuasch/Sistema-de-Moeda-Estudantil/blob/main/01.Documentacao/Diagrama-Fluxo_Professor_Distribui_Moeda.jpg" />
 
 
 ## 🗄️ Como executar o Banco de Dados
