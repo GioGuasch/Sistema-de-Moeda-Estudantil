@@ -161,6 +161,26 @@ Abra uma aba no google e busque por localhost
 E abra o projeto desejado. 
 
 E pronto, está rodando o front!! 
-
-
 O sistema abrirá em http://localhost
+
+
+## Como utilizar o sistema?
+
+1️⃣ Tipo de usuário: PROFESSOR 
+
+Nesse caso, o professor terá acesso a página de login e de cadastro, caso seja um novo professor. Após isso, a primeira página é a de inicio, onde ele consegue ver a quantidade de moedas disponiveis, um menu e um icone de perfil. 
+Este icone de perfil leva a página de edição de informações cadastradas, caso necessário. 
+No menu, temos a opção de voltar ao inicio, enviar moedas aos alunos, onde pode ser cadastrado novos envios, e por fim, a tela de visualizar o extrato onde deve ser visto tudo que foi enviado ao alunos e gerar um relatório dessas informações. 
+
+
+2️⃣ Tipo de usuário: ALUNO 
+
+Nesse caso, o aluno terá acesso a página de login e de cadastro, caso seja um novo aluno. Após isso, a primeira página é a de inicio, onde ele consegue ver a quantidade de moedas disponiveis, um menu e um icone de perfil. 
+Este icone de perfil leva a página de edição de informações cadastradas, caso necessário. 
+No menu, temos a opção de voltar ao inicio, resgatar novas vantagens, onde pode ser resgatado qualquer coisa que seja menor ou igual a quantidade de moedas disponiveis, e por fim, a tela de visualizar o extrato onde deve ser visto tudo que foi resgatado. 
+
+3️⃣ Tipo de usuário: EMPRESA PARCEIRA 
+
+Nesse caso, a empresa parceira terá acesso a página de login e de cadastro, caso seja uma nova empresa. Após isso, a primeira página é a de inicio, onde ela consegue ver as instituições onde ela faz parte, um menu e um icone de perfil. 
+Este icone de perfil leva a página de edição de informações cadastradas, caso necessário. 
+No menu, temos a opção de voltar ao inicio, cadastrar novas vantagens que ficará disponivel aos alunos, e por fim, a tela de visualizar o extrato onde deve ser visto tudo que foi resgatado na sua empresa e gerar um relatório dessas informações. 
