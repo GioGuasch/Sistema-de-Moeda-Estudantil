@@ -95,7 +95,7 @@ HS18 - Login e autenticação
 
 02.
 <img alt="Fluxo Empresa Cadastra Vantagem" src="https://github.com/GioGuasch/Sistema-de-Moeda-Estudantil/blob/main/01.Documentacao/Diagrama-Fluxo_Empresa_Cadastras_Vantagem.jpg" />
-
+ 
 03.
 <img alt="Fluxo Login de Usuario" src="https://github.com/GioGuasch/Sistema-de-Moeda-Estudantil/blob/main/01.Documentacao/Diagrama-Fluxo_Login_Usuario.jpg" />
 
