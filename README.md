@@ -91,16 +91,16 @@ HS18 - Login e autenticação
 ## Diagrama de Sequências
 
 01. 
-<img alt="Fluxo Aluno Resgata Vantagem" src="https://github.com/GioGuasch/Sistema-de-Moeda-Estudantil/blob/main/01.Documentacao/Diagrama-Fluxo_Aluno_Resgata_Vantagem.jpg" />
+<img alt="Fluxo Aluno Resgata Vantagem" src="https://github.com/GioGuasch/Sistema-de-Moeda-Estudantil/blob/main/01.Documentacao/Fluxo%20-%20Aluno%20Resgata%20Vantagem%20(HS05).png" />
 
 02.
-<img alt="Fluxo Empresa Cadastra Vantagem" src="https://github.com/GioGuasch/Sistema-de-Moeda-Estudantil/blob/main/01.Documentacao/Diagrama-Fluxo_Empresa_Cadastras_Vantagem.jpg" />
+<img alt="Fluxo Empresa Cadastra Vantagem" src="https://github.com/GioGuasch/Sistema-de-Moeda-Estudantil/blob/main/01.Documentacao/Fluxo%20-%20Empresa%20Cadastra%20Vantagem%20(HS14).png" />
  
 03.
-<img alt="Fluxo Login de Usuario" src="https://github.com/GioGuasch/Sistema-de-Moeda-Estudantil/blob/main/01.Documentacao/Diagrama-Fluxo_Login_Usuario.jpg" />
+<img alt="Fluxo Login de Usuario" src="https://github.com/GioGuasch/Sistema-de-Moeda-Estudantil/blob/main/01.Documentacao/Fluxo%20-%20Professor%20Distribui%20Moedas%20(HS10).png" />
 
 04.
-<img alt="Fluxo Professor Distribui Moeda" src="https://github.com/GioGuasch/Sistema-de-Moeda-Estudantil/blob/main/01.Documentacao/Diagrama-Fluxo_Professor_Distribui_Moeda.jpg" />
+<img alt="Fluxo Professor Distribui Moeda" src="https://github.com/GioGuasch/Sistema-de-Moeda-Estudantil/blob/main/01.Documentacao/Fluxo%20de%20Login%20de%20Usuário%20(HS18).png" />
 
 
 ## 🗄️ Como executar o Banco de Dados
