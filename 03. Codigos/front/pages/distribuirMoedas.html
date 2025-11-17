@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Distribuir moedas</title>
+  <link rel="stylesheet" href="../styles/distribuirMoedas.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <img src="../img/moeda.png" alt="Moeda" class="icone-moeda">
+    </div>
+
+    <nav>
+      <a href="inicioProfessor.html" class="active">Início</a>
+      <a href="distribuirMoedas.html">Distribuir moedas</a>
+      <a href="extratoProfessor.html">Extrato</a>
+    </nav>
+
+    <div class="user-info">
+      <a href="perfilProfessor.html"><i class="fa-solid fa-user"></i></a>
+    </div>
+  </header>
+
+  <h2 class="titulo-tabela">Lista de alunos</h2>
+
+  <main>
+
+    <div class="top-bar">
+
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Digite o nome do aluno" />
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+
+      <button id="baixarRelatorio" class="btn-relatorio">
+        <i class="fa-solid fa-file-arrow-down"></i> Baixar relatório
+      </button>
+
+    </div>
+
+    <table id="listaAlunos" class="tabela-alunos">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Curso</th>
+          <th>Instituição</th>
+          <th>Ação</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </main>
+
+  <!-- MODAL -->
+  <div id="modalMoedas" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3>Distribuir Moedas</h3>
+
+      <form id="formMoedas">
+
+        <input type="hidden" id="alunoId">
+
+        <div class="form-group">
+          <label>Nome do Professor</label>
+          <input type="text" id="nomeProfessor" placeholder="Seu nome" required>
+        </div>
+
+        <div class="form-group">
+          <label>Nome do Aluno</label>
+          <input type="text" id="nomeAluno" readonly>
+        </div>
+
+        <div class="form-group">
+          <label>Data</label>
+          <input type="date" id="dataMoeda" required>
+        </div>
+
+        <div class="form-group">
+          <label>Quantidade de Moedas</label>
+          <input type="number" id="qtdMoedas" min="1" placeholder="Quantidade de moedas" required>
+        </div>
+
+        <div class="form-group">
+          <label>Motivo</label>
+          <input type="text" id="motivoMoeda" placeholder="Digite o motivo da distribuição" required>
+        </div>
+
+        <button type="submit" class="btn-distribuir">Salvar</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    @Sistema de Moeda Estudantil
+  </footer>
+
+  <script src="../js/distribuirMoedas.js"></script>
+
+  <!-- BLOQUEAR DATAS PASSADAS E FUTURAS -->
+  <script>
+    const hoje = new Date().toISOString().split("T")[0];
+    const dataCampo = document.getElementById("dataMoeda");
+    dataCampo.min = hoje;
+    dataCampo.max = hoje;
+    dataCampo.value = hoje;
+  </script>
+
+</body>
+
+</html>
