@@ -34,9 +34,25 @@ document.getElementById("entrar").addEventListener("click", async function () {
     if (resultado.status === "ok") {
       alert(resultado.mensagem);
 
-      if (tipo === "aluno")      window.location.href = "inicioAluno.html";
-      if (tipo === "professor")  window.location.href = "inicioProfessor.html";
-      if (tipo === "empresa")    window.location.href = "inicioEmpresa.html";
+      // SALVAR DADOS NO SESSIONSTORAGE
+
+      if (tipo === "aluno") {
+        sessionStorage.setItem("nomeAluno", resultado.nome || "Aluno");
+        sessionStorage.setItem("emailAluno", resultado.email || email);
+        window.location.href = "inicioAluno.html";
+      }
+
+      if (tipo === "professor") {
+        sessionStorage.setItem("nomeProfessor", resultado.nome || "Professor");
+        sessionStorage.setItem("emailProfessor", resultado.email || email);
+        window.location.href = "inicioProfessor.html";
+      }
+
+      if (tipo === "empresa") {
+        sessionStorage.setItem("nomeEmpresa", resultado.nome || "Empresa");
+        sessionStorage.setItem("emailEmpresa", resultado.email || email);
+        window.location.href = "inicioEmpresa.html";
+      }
 
     } else {
       alert(resultado.mensagem);

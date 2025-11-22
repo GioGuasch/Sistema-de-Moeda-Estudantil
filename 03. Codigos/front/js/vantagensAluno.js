@@ -109,18 +109,69 @@ function ativarResgates() {
                     }
 
                     console.log("Retorno do PHP:", retorno);
+if (retorno.status === "sucesso") {
 
-                    if (retorno.status === "sucesso") {
-                        const sucesso = criarModal(
-                            "Vantagem resgatada com sucesso! 🥳",
-                            `<button id='fechar'>Fechar</button>`
-                        );
+    // ======= ENVIAR EMAIL DO RESGATE ===========
+    // Obter dados da VANTAGEM
+    const nomeVantagem = card.querySelector("h3").textContent;
+    const custoMoedas = card.dataset.moedas;
+    const urlImagem = card.querySelector("img").src;
 
-                        sucesso.querySelector("#fechar").onclick = () => sucesso.remove();
-                    } else {
-                        alert(retorno.mensagem);
-                    }
+    // Obter dados do ALUNO (ajuste se tiver nome/email em outra variável)
+    const nomeAluno = sessionStorage.getItem("nomeAluno") || "Aluno";
+    const emailAluno = sessionStorage.getItem("emailAluno") || "";
 
+    enviarEmailResgateVantagem({
+        nomeAluno: nomeAluno,
+        emailAluno: emailAluno,  // deixe "" se ainda não tiver
+        nomeVantagem: nomeVantagem,
+        custoMoedas: custoMoedas,
+        urlImagem: urlImagem
+    })
+    .then(() => console.log("Email de resgate enviado!"))
+    .catch(err => console.error("Erro ao enviar email de resgate:", err));
+
+    // ======= POP-UP DE SUCESSO ===========
+    const sucesso = criarModal(
+        "Vantagem resgatada com sucesso! 🥳",
+        `<button id='fechar'>Fechar</button>`
+    );
+
+    sucesso.querySelector("#fechar").onclick = () => sucesso.remove();
+
+} else {
+    alert(retorno.mensagem);
+}
+if (retorno.status === "sucesso") {
+
+    // ENVIAR EMAIL DO RESGATE
+    const nomeVantagem = card.querySelector("h3").textContent;
+    const custoMoedas = card.dataset.moedas;
+    const urlImagem = card.querySelector("img").src;
+
+    const nomeAluno = sessionStorage.getItem("nomeAluno") || "Aluno";
+    const emailAluno = sessionStorage.getItem("emailAluno") || "";
+
+    enviarEmailResgateVantagem({
+        nomeAluno: nomeAluno,
+        emailAluno: emailAluno,
+        nomeVantagem: nomeVantagem,
+        custoMoedas: custoMoedas,
+        urlImagem: urlImagem
+    })
+    .then(() => console.log("Email de resgate enviado!"))
+    .catch(err => console.error("Erro ao enviar email de resgate:", err));
+
+    const sucesso = criarModal(
+        "Vantagem resgatada com sucesso! 🥳",
+        `<button id='fechar'>Fechar</button>`
+    );
+
+    sucesso.querySelector("#fechar").onclick = () => sucesso.remove();
+
+} else {
+    alert(retorno.mensagem);
+}
                 } catch (erro) {
                     console.error("Erro ao enviar resgate:", erro);
                 }
