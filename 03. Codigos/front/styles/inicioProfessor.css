@@ -1,0 +1,151 @@
+/* Reset e fontes */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: #e09200;
+    box-shadow: 0 2px 4px rgb(238, 238, 238);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.icone-moeda {
+    height: 40px;
+}
+
+nav a {
+    margin: 0 15px;
+    font-size: 1.05em;
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+nav a.active,
+nav a:hover {
+    border-bottom: 2px solid #f7f7f7;
+}
+
+.user-info {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.user-info i {
+    font-size: 1.2em;
+    color: #fff;
+    padding: 5px 8px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.user-info i:hover {
+    background-color: #e09200cc;
+}
+
+/* Dropdown */
+.dropdown-menu {
+    position: absolute;
+    top: 120%;
+    right: 0;
+    background-color: #fff;
+    color: #333;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    overflow: hidden;
+    display: none;
+    min-width: 140px;
+    z-index: 1001;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+/* HERO SECTION */
+.hero-section {
+    text-align: center;
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 900px;
+}
+
+.hero-section h2 {
+    font-size: 2rem;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.hero-section p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* BANNER */
+.banner-section {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.banner-section img {
+    width: 100%;
+    border-radius: 10px;
+    height: 350px;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    background-color: #e09200;
+    color: #fff;
+    padding: 20px 0;
+    margin-top: auto;
+}
+
+/* RESPONSIVO */
+@media(max-width:900px){
+    .hero-section {
+        padding: 15px;
+    }
+
+    .banner-section img {
+        height: 250px;
+    }
+
+    nav a {
+        margin: 0 10px;
+    }
+}

@@ -1,0 +1,221 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* BODY */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f0f2f5;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: #e09200;
+    box-shadow: 0 2px 4px rgb(238, 238, 238);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .icone-moeda {
+    height: 40px;
+}
+
+nav a {
+    margin: 0 15px;
+    font-size: 1.05em;
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+nav a.active,
+nav a:hover {
+    border-bottom: 2px solid #f7f7f7;
+}
+
+/* USER ICON */
+.user-info {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.user-info i {
+    font-size: 1.3em;
+    color: #fff;
+    padding: 5px 8px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.user-info i:hover {
+    background-color: #e09200cc;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 120%;
+    right: 0;
+    background-color: #fff;
+    color: #333;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    overflow: hidden;
+    display: none;
+    min-width: 140px;
+    z-index: 1001;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+/* HERO SECTION */
+.hero-section {
+    text-align: center;
+    padding: 40px 20px 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.hero-section h2 {
+    font-size: 2em;
+    color: #e09200;
+    margin-bottom: 10px;
+}
+
+.hero-section p {
+    font-size: 1.1em;
+    color: #333;
+}
+
+/* FAQ SECTION */
+.faq-section {
+    width: 85%;
+    margin: 0 auto 30px;
+}
+
+.faq-section h3 {
+    font-size: 1.5em;
+    color: #e09200;
+    margin-bottom: 15px;
+}
+
+.faq {
+    margin-bottom: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: #fff;
+}
+
+.faq-question {
+    width: 100%;
+    text-align: left;
+    padding: 15px 20px;
+    background-color: #e09200cc;
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+}
+
+.faq-question:hover {
+    background-color: #e09200;
+}
+
+.faq-answer {
+    display: none;
+    padding: 15px 20px;
+    color: #333;
+    font-size: 1em;
+    background-color: #fffbe6;
+}
+
+/* CONTACT SECTION */
+.contact-section {
+    width: 85%;
+    margin: 0 auto 40px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.contact-section h3 {
+    color: #e09200;
+    margin-bottom: 10px;
+    font-size: 1.4em;
+}
+
+.contact-section p {
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: #333;
+}
+
+.contact-section ul {
+    list-style: none;
+}
+
+.contact-section ul li {
+    margin-bottom: 8px;
+    font-size: 1em;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    background-color: #e09200;
+    color: #fff;
+    padding: 20px 0;
+    margin-top: auto;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    nav a {
+        margin: 0 10px;
+        font-size: 0.95em;
+    }
+
+    .hero-section {
+        padding: 30px 15px 15px;
+    }
+
+    .faq-question, .faq-answer {
+        font-size: 0.95em;
+    }
+
+    .contact-section {
+        padding: 15px;
+    }
+}
