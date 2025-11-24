@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Início</title>
+  <link rel="stylesheet" href="../styles/inicioAluno.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script src="../js/inicioAluno.js" defer></script>
+</head>
+
+<body>
+
+  <header>
+    <div class="header-left">
+      <img src="../img/moeda.png" alt="Moeda" class="icone-moeda" />
+    </div>
+
+    <nav>
+      <a href="inicioAluno.html" class="active">Início</a>
+      <a href="vantagensAluno.html">Vantagens</a>
+      <a href="faleConosco.html">Fale conosco</a>
+    </nav>
+
+    <div class="user-info">
+      <i class="fa-solid fa-user" id="userIcon"></i>
+      <div class="dropdown-menu" id="userDropdown">
+        <a href="login.html">Encerrar sessão</a>
+      </div>
+    </div>
+  </header>
+
+
+  <main>
+
+    <section class="hero-section">
+      <h2>Bem-vindo(a) ao Sistema de Moedas Estudantis!</h2>
+      <p>Gerencie seu saldo, resgate vantagens e acompanhe seu progresso.</p>
+    </section>
+
+    <section class="content">
+
+      <div class="card-saldo">
+        <h3>Consultar saldo</h3>
+
+        <label>Código do aluno</label>
+        <input type="text" id="codigoAluno" placeholder="Digite seu código" />
+
+        <button id="consultarSaldo">Consultar</button>
+
+        <div id="resultadoSaldo" class="resultado"></div>
+      </div>
+
+      <aside class="banner">
+        <img src="../img/carrossel3.png" alt="Banner de destaque">
+      </aside>
+
+    </section>
+  </main>
+
+
+  <footer>
+    © Sistema de Moeda Estudantil
+  </footer>
+
+</body>
+
+</html>

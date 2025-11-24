@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Início Empresa</title>
+  <script src="../js/inicioEmpresa.js" defer></script>
+  <link rel="stylesheet" href="../styles/inicioEmpresa.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: #f4f5f7;
+      color: #333;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 5%;
+      background-color: #e09200;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-left img {
+      height: 42px;
+    }
+
+    nav a {
+      margin: 0 18px;
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1.05em;
+      position: relative;
+      transition: all 0.3s;
+    }
+
+    nav a.active,
+    nav a:hover {
+      border-bottom: 2px solid #fff;
+    }
+
+    .user-info i {
+      color: #fff;
+      font-size: 1.3em;
+      padding: 5px 8px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+      cursor: pointer;
+    }
+
+    .user-info i:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    .info-section {
+      text-align: center;
+      margin: 50px 20px 30px;
+    }
+
+    .info-section h3 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #e09200;
+    }
+    .image-aside {
+      display: flex;
+      justify-content: center;
+      margin: 20px 5%;
+    }
+
+    .image-aside img {
+      width: 100%;
+      max-width: 900px;
+      border-radius: 15px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      object-fit: cover;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #e09200;
+      color: #fff;
+      padding: 20px 0;
+      margin-top: auto;
+      font-size: 0.9em;
+      box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 120%;
+      right: 0;
+      background-color: #fff;
+      color: #333;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      display: none;
+      min-width: 140px;
+      z-index: 1001;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 10px 15px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #f0f0f0;
+    }
+
+    @media(max-width: 768px) {
+      nav a {
+        margin: 0 10px;
+        font-size: 0.95em;
+      }
+
+      .info-section h3 {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media(max-width: 480px) {
+      .image-aside img {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="header-left">
+      <img src="../img/moeda.png" alt="Moeda" class="icone-moeda" />
+    </div>
+
+    <nav>
+      <a href="inicioEmpresa.html" class="active">Início</a>
+      <a href="cadastrarVantagem.html">Cadastrar vantagem</a>
+      <a href="faleConoscoEmpresa.html">Fale Conosco</a>
+    </nav>
+
+    <div class="user-info">
+      <i class="fa-solid fa-user" id="userIcon"></i>
+      <div class="dropdown-menu" id="userDropdown">
+        <a href="login.html">Encerrar sessão</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="info-section">
+      <h3>BEM-VINDA, EMPRESA PARCEIRA!</h3>
+      <p>Gerencie suas vantagens e acompanhe os resgates de forma simples e rápida.</p>
+    </section>
+
+    <section class="image-aside">
+      <img src="../img/carrossel3.png" alt="Banner de destaque" />
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Sistema de Moeda Estudantil
+  </footer>
+</body>
+
+</html>

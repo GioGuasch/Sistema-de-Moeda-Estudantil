@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link rel="stylesheet" href="../styles/login.css" />
+  <style>
+    /* Modal de aviso rápido */
+    #modalSucesso {
+      display: none;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #4CAF50;
+      color: white;
+      padding: 15px 25px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+      font-family: sans-serif;
+      transition: opacity 0.3s;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main-content">
+    <div class="login-section">
+      <div class="login-box">
+        <img src="../img/moeda.png" alt="Moedas" class="icone" />
+        <h1>Seja bem-vindo(a)</h1>
+        <p>Faça seu login</p>
+
+        <label for="tipo">Tipo de usuário:</label>
+        <select id="tipo">
+          <option value="aluno">Aluno</option>
+          <option value="professor">Professor</option>
+          <option value="empresa">Empresa</option>
+        </select>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Digite seu email" />
+
+        <label for="senha">Senha:</label>
+        <div class="senha-container">
+          <input type="password" id="senha" placeholder="Digite sua senha" />
+          <img src="../img/olhoFechado.png" id="toggleSenha" class="icone-olho" />
+        </div>
+
+        <button id="entrar">Entrar</button>
+
+        <div class="links">
+          <a href="cadastro.html">Cadastrar-me</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="image-section">
+      <img src="../img/carrossel2.png" alt="Imagem de fundo de login" />
+    </div>
+  </div>
+
+  <!-- Modal de aviso -->
+  <div id="modalSucesso"><p></p></div>
+
+  <script src="../js/login.js"></script>
+</body>
+
+</html>

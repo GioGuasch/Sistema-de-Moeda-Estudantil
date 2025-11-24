@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vantagens</title>
+  <link rel="stylesheet" href="../styles/vantagensAluno.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script src="../js/vantagensAluno.js" defer></script>
+
+  <style>
+    /* Modal de aviso rápido */
+    #modalSucesso {
+      display: none;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #4CAF50;
+      color: white;
+      padding: 15px 25px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+      font-family: sans-serif;
+      transition: opacity 0.3s;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="header-left">
+      <img src="../img/moeda.png" alt="Moeda" class="icone-moeda" />
+    </div>
+
+    <nav>
+      <a href="inicioAluno.html" class="active">Início</a>
+      <a href="vantagensAluno.html">Vantagens</a>
+      <a href="faleConosco.html">Fale conosco</a>
+    </nav>
+
+    <div class="user-info">
+      <i class="fa-solid fa-user" id="userIcon"></i>
+      <div class="dropdown-menu" id="userDropdown">
+        <a href="login.html">Encerrar sessão</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="search-section">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Digite o nome da vantagem" />
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+    </section>
+
+    <section id="vantagensContainer" class="cards-container"></section>
+  </main>
+
+  <footer>
+    @Sistema de Moeda Estudantil
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="../js/email_resgate_vantagem.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastrar Vantagem</title>
+  <link rel="stylesheet" href="../styles/cadastrarVantagem.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="../img/moeda.png" alt="Moeda" class="icone-moeda">
+    </div>
+
+    <nav>
+      <a href="inicioEmpresa.html" class="active">Início</a>
+      <a href="cadastrarVantagem.html">Cadastrar Vantagem</a>
+      <a href="faleConoscoEmpresa.html">Fale Conosco</a>
+    </nav>
+
+    <div class="user-info">
+      <i class="fa-solid fa-user" id="userIcon"></i>
+      <div class="dropdown-menu" id="userDropdown">
+        <a href="login.html">Encerrar sessão</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="search-area">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Digite o nome da vantagem" />
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+
+      <button id="btnAbrirModal" class="btn-nova-vantagem">
+        <i class="fa-solid fa-plus"></i> Nova vantagem
+      </button>
+    </div>
+
+    <section id="vantagensContainer" class="cards-container"></section>
+  </main>
+
+  <footer>
+    @Sistema de Moeda Estudantil
+  </footer>
+
+  <!-- Modal de cadastro -->
+  <div id="modalCadastro" class="modal" style="display:none;">
+    <div class="modal-content">
+      <h2>Nova vantagem</h2>
+
+      <label>Nome da vantagem:</label>
+      <input type="text" id="nomeVantagem" placeholder="Nome da vantagem">
+
+      <label>Valor em moedas $:</label>
+      <input type="number" id="valorVantagem" placeholder="Valor em moedas">
+
+      <label>Imagem da vantagem:</label>
+      <input type="file" id="imgVantagem" accept="image/*">
+
+      <label>Status:</label>
+      <select id="statusVantagem">
+        <option value="ativo" selected>Ativo</option>
+        <option value="inativo">Inativo</option>
+      </select>
+
+      <div class="botoes">
+        <button type="button" class="cancelar" onclick="fecharModal()">Cancelar</button>
+        <button type="button" class="salvar" onclick="salvarVantagem()">Salvar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de mensagem -->
+  <div id="modalSucesso" style="display:none;"></div>
+
+  <script src="../js/cadastrarVantagem.js"></script>
+</body>
+
+</html>

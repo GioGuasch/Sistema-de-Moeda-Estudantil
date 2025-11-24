@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro</title>
+  <link rel="stylesheet" href="../styles/cadastro.css" />
+  <script defer src="../js/cadastro.js"></script>
+  <style>
+    /* Modal de aviso rápido */
+    #modalSucesso {
+      display: none;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #4CAF50;
+      color: white;
+      padding: 15px 25px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+      font-family: sans-serif;
+      transition: opacity 0.3s;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="box">
+      <img src="../img/moeda.png" alt="Ícone" class="icon" />
+      <h1>Cadastro de Usuário</h1>
+      <p>Selecione o tipo de usuário e preencha os campos abaixo:</p>
+
+      <!-- Adicionei id="formCadastro" -->
+      <form id="formCadastro" onsubmit="cadastrar(event)">
+        <div class="form-row">
+          <label for="tipoUsuario">Tipo de Usuário</label>
+          <select id="tipoUsuario" name="tipoUsuario" onchange="alterarCampos()" required>
+            <option value="">Selecione...</option>
+            <option value="aluno">Aluno</option>
+            <option value="professor">Professor</option>
+            <option value="empresa">Empresa Parceira</option>
+          </select>
+        </div>
+
+        <div id="camposDinamicos"></div>
+
+        <button type="submit" class="btn">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="modalSucesso" class="modal">
+    <div class="modal-content">
+      <p></p>
+    </div>
+  </div>
+</body>
+
+</html>
