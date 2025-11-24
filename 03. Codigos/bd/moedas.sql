@@ -3,6 +3,7 @@ USE Moedas;
 
 -- TABELA DE ALUNOS --
 select * from Alunos;
+
 CREATE TABLE Alunos (
     idAluno INT AUTO_INCREMENT PRIMARY KEY,
     nomeAluno VARCHAR(150) NOT NULL,
@@ -69,6 +70,9 @@ CREATE TABLE Moedas(
     FOREIGN KEY (idAluno) REFERENCES Alunos(id)
 );
 
+INSERT INTO Moedas(idAluno, nomeSobrenomeAluno, data, motivo, quantidadeMoedas)
+values (2, '2025-11-23', 'Melhor nota', 20);
+
 -- TABELA CARTEIRA ALUNO -- 
 select * from CarteiraAluno;
 CREATE TABLE CarteiraAluno (
@@ -103,4 +107,3 @@ CREATE TABLE ExtratoProfessor(
     FOREIGN KEY (idAluno) REFERENCES Alunos(id)
  );
  
-
