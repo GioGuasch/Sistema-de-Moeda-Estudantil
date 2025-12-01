@@ -59,7 +59,7 @@ function mostrarModal(msg, duracao = 1000) {
 
     setTimeout(() => {
         modal.style.opacity = 0;
-        setTimeout(() => modal.style.display = "none", 300); // fade out suave
+        setTimeout(() => modal.style.display = "none", 300);
     }, duracao);
 }
 
@@ -104,6 +104,9 @@ function ativarResgates() {
                 modal.remove();
 
                 try {
+                    // ============================
+                    // RESGATAR A VANTAGEM (PHP)
+                    // ============================
                     const resposta = await fetch("../../back/resgatarVantagem.php", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
@@ -124,6 +127,9 @@ function ativarResgates() {
                         return mostrarModal(retorno.mensagem);
                     }
 
+                    // ===================================
+                    // BUSCAR DADOS DO ALUNO PELO CÓDIGO
+                    // ===================================
                     const dadosAlunoResp = await fetch("../../back/buscarAlunoPorCodigo.php", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
@@ -144,6 +150,9 @@ function ativarResgates() {
                         return mostrarModal("Erro ao recuperar dados do aluno.");
                     }
 
+                    // ===================================
+                    // DADOS PARA O EMAIL
+                    // ===================================
                     const nomeAluno = dadosAluno.nomeAluno;
                     const emailAluno = dadosAluno.emailAluno;
 
@@ -151,16 +160,26 @@ function ativarResgates() {
                     const custoMoedas = card.dataset.moedas;
                     const urlImagem = card.querySelector("img").src;
 
+                    // URL DO QRCode enviada pelo PHP
+                    const urlQRCode = retorno.qrcode_url || "";
+
+                    // ===================================
+                    // ENVIAR E-MAIL COM FOTO + QR CODE
+                    // ===================================
                     enviarEmailResgateVantagem({
                         nomeAluno,
                         emailAluno,
                         nomeVantagem,
                         custoMoedas,
-                        urlImagem
+                        urlImagem,
+                        urlQRCode
                     })
                     .then(() => console.log("Email enviado!"))
                     .catch(err => console.error("Erro ao enviar email:", err));
 
+                    // =============================
+                    // MODAL DE SUCESSO NA TELA
+                    // =============================
                     const sucesso = criarModal(
                         "Vantagem resgatada com sucesso! 🥳",
                         `<button id='fechar'>Fechar</button>`
