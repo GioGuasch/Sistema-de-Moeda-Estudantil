@@ -102,6 +102,10 @@ HS18 - Login e autenticação
 04.
 <img alt="Fluxo Professor Distribui Moeda" src="https://github.com/GioGuasch/Sistema-de-Moeda-Estudantil/blob/main/01.Documentacao/Fluxo%20de%20Login%20de%20Usuário%20(HS18).png" />
 
+\## Diagrama de Comunicação
+
+<img alt="Diagrama - Classes - Sistema de Moeda Estudantil" src="https://github.com/GioGuasch/Sistema-de-Moeda-Estudantil/blob/main/01.Documentacao/ComunicacaoEnvioCupons.png" />
+
 
 ## 🗄️ Como executar o Banco de Dados
 
