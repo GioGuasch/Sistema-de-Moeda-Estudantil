@@ -106,6 +106,9 @@ HS18 - Login e autenticação
 
 <img alt="Diagrama - Classes - Sistema de Moeda Estudantil" src="https://github.com/GioGuasch/Sistema-de-Moeda-Estudantil/blob/main/01.Documentacao/ComunicacaoEnvioCupons.png" />
 
+\## Diagrama de Implementação
+
+<img alt="Diagrama - Classes - Sistema de Moeda Estudantil" src="https://github.com/GioGuasch/Sistema-de-Moeda-Estudantil/blob/main/01.Documentacao/Implementação.png" />
 
 ## 🗄️ Como executar o Banco de Dados
 
