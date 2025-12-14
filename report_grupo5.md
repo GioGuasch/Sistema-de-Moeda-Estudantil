@@ -11,7 +11,7 @@
 ## 📌 2. Identificação do Projeto
 - **Nome do projeto:** Sistema de Moeda Estudantil
 - **Integrantes do outro grupo:** Cauê Afonso Moraes, Thomas Ramos de Oliveira, Vinicius Gomes Rodrigues e Vitor Veiga Silva
-- **Link do repositório:** [_https://github.com/exemplo/projeto_  ](https://github.com/vitorveigas/Sistema-de-moeda-estudantil)
+- **Link do repositório:** (https://github.com/vitorveigas/Sistema-de-moeda-estudantil)
 - **Pull requests submetidos pelo seu grupo:**
 
 ## 🧱 3. Arquitetura e Tecnologias Utilizadas
@@ -150,335 +150,105 @@ Como melhoria final, sugere-se a criação de uma pipeline de CI/CD com GitHub A
 
 ## 🔧 6. Refatorações Propostas (3 partes do código)
 
-1️⃣ Refatoração 1 – Extração de Método (Extract Method)
+🔧 Refatoração 1 – Extração de Método (Extract Method)
 
-Arquivo e localização: login.html (script JS) — funções de submit de Login e Cadastro (bloco fetch + tratamento de resposta)
-Tipo de refatoração aplicada: Extract Method
-Link do Pull Request: (colar o link do PR aqui)
+Arquivo e localização:
+src/main/resources/static/login.html — script JavaScript responsável pelo submit de Login e Cadastro
 
-🔴 Antes
+Tipo de refatoração aplicada:
+Extract Method
+
+Link do Pull Request:
+(inserir link do PR aqui)
+
+🔴 Código Antes
+
 document.getElementById('loginForm').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  showLoading(true);
+    e.preventDefault();
+    showLoading(true);
 
-  const email = document.getElementById('loginEmail').value;
-  const password = document.getElementById('loginPassword').value;
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
 
-  try {
-    const response = await fetch(`${API_BASE}/auth/login`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password })
-    });
+    try {
+        const response = await fetch(`${API_BASE}/auth/login`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password })
+        });
 
-    const data = await response.json();
+        const data = await response.json();
 
-    if (response.ok) {
-      currentToken = data.token;
-      currentUserType = data.userType;
-      localStorage.setItem('token', currentToken);
-      localStorage.setItem('userType', currentUserType);
-      console.log('Token salvo:', currentToken);
-      console.log('UserType salvo:', currentUserType);
-      showMessage('Login realizado com sucesso!');
-      setTimeout(() => {
-        window.location.href = redirectByUserType(currentUserType);
-      }, 800);
-    } else {
-      showMessage(data.error || 'Erro no login', 'error');
+        if (response.ok) {
+            currentToken = data.token;
+            currentUserType = data.userType;
+            localStorage.setItem('token', currentToken);
+            localStorage.setItem('userType', currentUserType);
+            console.log('Token salvo:', currentToken);
+            console.log('UserType salvo:', currentUserType);
+            showMessage('Login realizado com sucesso!');
+            setTimeout(() => {
+                window.location.href = redirectByUserType(currentUserType);
+            }, 800);
+        } else {
+            showMessage(data.error || 'Erro no login', 'error');
+        }
+    } catch (error) {
+        showMessage('Erro de conexão', 'error');
+    } finally {
+        showLoading(false);
     }
-  } catch (error) {
-    showMessage('Erro de conexão', 'error');
-  } finally {
-    showLoading(false);
-  }
 });
 
-document.getElementById('registerForm').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  showLoading(true);
+🟢 Código Depois
 
-  const userType = document.getElementById('userType').value;
-  const formData = {
-    nome: document.getElementById('regName').value,
-    email: document.getElementById('regEmail').value,
-    senha: document.getElementById('regPassword').value
-  };
-
-  if (userType === 'aluno') {
-    formData.matricula = document.getElementById('matricula').value;
-    formData.curso = document.getElementById('curso').value;
-    formData.cpf = document.getElementById('cpf').value;
-    formData.rg = document.getElementById('rg').value;
-    formData.instituicaoEnsino = document.getElementById('instituicao').value;
-    formData.endereco = document.getElementById('endereco').value;
-  } else {
-    formData.cnpj = document.getElementById('cnpj').value;
-    formData.razaoSocial = document.getElementById('razaoSocial').value;
-    formData.endereco = document.getElementById('empresaEndereco').value;
-  }
-
-  try {
-    const endpoint = userType === 'aluno' ? '/auth/register/aluno' : '/auth/register/empresa';
-    const response = await fetch(`${API_BASE}${endpoint}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData)
-    });
-
-    const data = await response.json();
-
-    if (response.ok) {
-      currentToken = data.token;
-      currentUserType = data.userType;
-      localStorage.setItem('token', currentToken);
-      localStorage.setItem('userType', currentUserType);
-      console.log('Token salvo no cadastro:', currentToken);
-      console.log('UserType salvo no cadastro:', currentUserType);
-      showMessage('Cadastro realizado com sucesso!');
-      setTimeout(() => {
-        window.location.href = redirectByUserType(currentUserType);
-      }, 800);
-    } else {
-      showMessage(data.error || 'Erro no cadastro', 'error');
-    }
-  } catch (error) {
-    showMessage('Erro de conexão', 'error');
-  } finally {
-    showLoading(false);
-  }
-});
-
-🟢 Depois
 async function postJson(url, payload) {
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload)
-  });
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    });
 
-  const data = await response.json().catch(() => ({}));
-  return { response, data };
+    const data = await response.json().catch(() => ({}));
+    return { response, data };
 }
 
 function handleAuthSuccess(data, successMessage) {
-  currentToken = data.token;
-  currentUserType = data.userType;
+    currentToken = data.token;
+    currentUserType = data.userType;
 
-  localStorage.setItem('token', currentToken);
-  localStorage.setItem('userType', currentUserType);
+    localStorage.setItem('token', currentToken);
+    localStorage.setItem('userType', currentUserType);
 
-  // Evitar logar token em console em produção (risco de vazamento)
-  showMessage(successMessage);
+    showMessage(successMessage);
 
-  setTimeout(() => {
-    window.location.href = redirectByUserType(currentUserType);
-  }, 800);
+    setTimeout(() => {
+        window.location.href = redirectByUserType(currentUserType);
+    }, 800);
 }
 
 document.getElementById('loginForm').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  showLoading(true);
+    e.preventDefault();
+    showLoading(true);
 
-  const email = document.getElementById('loginEmail').value;
-  const password = document.getElementById('loginPassword').value;
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
 
-  try {
-    const { response, data } = await postJson(`${API_BASE}/auth/login`, { email, password });
-
-    if (response.ok) {
-      handleAuthSuccess(data, 'Login realizado com sucesso!');
-    } else {
-      showMessage(data.error || 'Erro no login', 'error');
-    }
-  } catch {
-    showMessage('Erro de conexão', 'error');
-  } finally {
-    showLoading(false);
-  }
-});
-
-document.getElementById('registerForm').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  showLoading(true);
-
-  const userType = document.getElementById('userType').value;
-
-  const formData = {
-    nome: document.getElementById('regName').value,
-    email: document.getElementById('regEmail').value,
-    senha: document.getElementById('regPassword').value,
-    ...(userType === 'aluno'
-      ? {
-          matricula: document.getElementById('matricula').value,
-          curso: document.getElementById('curso').value,
-          cpf: document.getElementById('cpf').value,
-          rg: document.getElementById('rg').value,
-          instituicaoEnsino: document.getElementById('instituicao').value,
-          endereco: document.getElementById('endereco').value
-        }
-      : {
-          cnpj: document.getElementById('cnpj').value,
-          razaoSocial: document.getElementById('razaoSocial').value,
-          endereco: document.getElementById('empresaEndereco').value
-        })
-  };
-
-  try {
-    const endpoint = userType === 'aluno' ? '/auth/register/aluno' : '/auth/register/empresa';
-    const { response, data } = await postJson(`${API_BASE}${endpoint}`, formData);
-
-    if (response.ok) {
-      handleAuthSuccess(data, 'Cadastro realizado com sucesso!');
-    } else {
-      showMessage(data.error || 'Erro no cadastro', 'error');
-    }
-  } catch {
-    showMessage('Erro de conexão', 'error');
-  } finally {
-    showLoading(false);
-  }
-});
-
-📝 Justificativa técnica
-
-A lógica de integração com API (fetch + parse do JSON + tratamento de sucesso) estava duplicada em dois pontos. A extração de métodos reduz duplicação, melhora legibilidade, facilita manutenção e permite testar/alterar o comportamento de chamadas HTTP em apenas um lugar.
-
-2️⃣ Refatoração 2 – Extrair Método + Remover Duplicação (DRY) em Atualização
-
-Arquivo e localização: AlunoServices.java — métodos atualizarAluno(...) e atualizarAlunoPorCpf(...) (duplicação na criação do builder)
-Tipo de refatoração aplicada: Extract Method + Remove Duplicated Code
-Link do Pull Request: (colar o link do PR aqui)
-
-🔴 Antes
-public void atualizarAluno(Long id, Aluno aluno){
-   Aluno alunoAtual = buscarAlunoPorId(id);
-   Aluno alunoAtualizado = Aluno.builder()
-    .id(alunoAtual.getId())
-    .nome(aluno.getNome() != null ? aluno.getNome() : alunoAtual.getNome())
-    .email(aluno.getEmail() != null ? aluno.getEmail() : alunoAtual.getEmail())
-    .senha(aluno.getSenha() != null ? aluno.getSenha() : alunoAtual.getSenha())
-    .matricula(aluno.getMatricula() != null ? aluno.getMatricula() : alunoAtual.getMatricula())
-    .curso(aluno.getCurso() != null ? aluno.getCurso() : alunoAtual.getCurso())
-    .cpf(aluno.getCpf() != null ? aluno.getCpf() : alunoAtual.getCpf())
-    .rg(aluno.getRg() != null ? aluno.getRg() : alunoAtual.getRg())
-    .instituicaoEnsino(aluno.getInstituicaoEnsino() != null ? aluno.getInstituicaoEnsino() : alunoAtual.getInstituicaoEnsino())
-    .endereco(aluno.getEndereco() != null ? aluno.getEndereco() : alunoAtual.getEndereco())
-    .build();
-     
-    alunoRepositories.saveAndFlush(alunoAtualizado);
-}
-
-public void atualizarAlunoPorCpf(String cpf, Aluno aluno){
-    Aluno alunoAtual = buscarAlunoPorCpf(cpf);
-    Aluno alunoAtualizado = Aluno.builder()
-        .id(alunoAtual.getId())
-        .nome(aluno.getNome() != null ? aluno.getNome() : alunoAtual.getNome())
-        .email(aluno.getEmail() != null ? aluno.getEmail() : alunoAtual.getEmail())
-        .senha(aluno.getSenha() != null ? aluno.getSenha() : alunoAtual.getSenha())
-        .matricula(aluno.getMatricula() != null ? aluno.getMatricula() : alunoAtual.getMatricula())
-        .curso(aluno.getCurso() != null ? aluno.getCurso() : alunoAtual.getCurso())
-        .cpf(aluno.getCpf() != null ? aluno.getCpf() : alunoAtual.getCpf())
-        .rg(aluno.getRg() != null ? aluno.getRg() : alunoAtual.getRg())
-        .instituicaoEnsino(aluno.getInstituicaoEnsino() != null ? aluno.getInstituicaoEnsino() : alunoAtual.getInstituicaoEnsino())
-        .endereco(aluno.getEndereco() != null ? aluno.getEndereco() : alunoAtual.getEndereco())
-        .build();
-         
-    alunoRepositories.saveAndFlush(alunoAtualizado);
-}
-
-🟢 Depois
-private Aluno mergeAluno(Aluno atual, Aluno novo) {
-    return Aluno.builder()
-        .id(atual.getId())
-        .nome(novo.getNome() != null ? novo.getNome() : atual.getNome())
-        .email(novo.getEmail() != null ? novo.getEmail() : atual.getEmail())
-        .senha(novo.getSenha() != null ? novo.getSenha() : atual.getSenha())
-        .matricula(novo.getMatricula() != null ? novo.getMatricula() : atual.getMatricula())
-        .curso(novo.getCurso() != null ? novo.getCurso() : atual.getCurso())
-        .cpf(novo.getCpf() != null ? novo.getCpf() : atual.getCpf())
-        .rg(novo.getRg() != null ? novo.getRg() : atual.getRg())
-        .instituicaoEnsino(novo.getInstituicaoEnsino() != null ? novo.getInstituicaoEnsino() : atual.getInstituicaoEnsino())
-        .endereco(novo.getEndereco() != null ? novo.getEndereco() : atual.getEndereco())
-        .build();
-}
-
-public void atualizarAluno(Long id, Aluno aluno) {
-    Aluno atual = buscarAlunoPorId(id);
-    alunoRepositories.saveAndFlush(mergeAluno(atual, aluno));
-}
-
-public void atualizarAlunoPorCpf(String cpf, Aluno aluno) {
-    Aluno atual = buscarAlunoPorCpf(cpf);
-    alunoRepositories.saveAndFlush(mergeAluno(atual, aluno));
-}
-
-📝 Justificativa técnica
-
-Havia duplicação evidente de lógica de “merge” entre o objeto atual e os novos dados. Ao extrair para um método único, reduz-se risco de inconsistência (ex.: esquecer um campo em uma das versões), melhora manutenção e legibilidade, e facilita criar testes unitários para a regra de atualização.
-
-3️⃣ Refatoração 3 – Tratamento Centralizado de Erros (ControllerAdvice)
-
-Arquivo e localização: Controllers (AlunoController, TransacaoController, VantagemController, ProfessorController) — múltiplos try/catch, printStackTrace() e respostas inconsistentes
-Tipo de refatoração aplicada: Introduce Exception Handling / Replace Repeated Try-Catch with Global Handler
-Link do Pull Request: (colar o link do PR aqui)
-
-🔴 Antes (exemplo)
-@GetMapping("/perfil")
-public ResponseEntity<Aluno> perfil(@RequestHeader("Authorization") String authHeader) {
     try {
-        String token = authHeader.replace("Bearer ", "");
-        String email = jwtService.extractUsername(token);
-        Aluno aluno = alunoServices.buscarAlunoPorEmail(email);
-        return ResponseEntity.ok(aluno);
-    } catch (Exception e) {
-        e.printStackTrace();
-        return ResponseEntity.status(401).build();
+        const { response, data } = await postJson(
+            `${API_BASE}/auth/login`,
+            { email, password }
+        );
+
+        if (response.ok) {
+            handleAuthSuccess(data, 'Login realizado com sucesso!');
+        } else {
+            showMessage(data.error || 'Erro no login', 'error');
+        }
+    } catch {
+        showMessage('Erro de conexão', 'error');
+    } finally {
+        showLoading(false);
     }
-}
+});
 
-🟢 Depois
-@GetMapping("/perfil")
-public ResponseEntity<Aluno> perfil(@RequestHeader("Authorization") String authHeader) {
-    String token = authHeader.replace("Bearer ", "");
-    String email = jwtService.extractUsername(token);
-    Aluno aluno = alunoServices.buscarAlunoPorEmail(email);
-    return ResponseEntity.ok(aluno);
-}
-
-
-Novo arquivo: GlobalExceptionHandler.java
-
-package com.lab.sistema_de_moedas.controller;
-
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-import java.util.Map;
-
-@RestControllerAdvice
-public class GlobalExceptionHandler {
-
-    @ExceptionHandler(IllegalArgumentException.class)
-    public ResponseEntity<Map<String, String>> handleBadRequest(IllegalArgumentException ex) {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-            .body(Map.of("error", ex.getMessage()));
-    }
-
-    @ExceptionHandler(RuntimeException.class)
-    public ResponseEntity<Map<String, String>> handleNotFound(RuntimeException ex) {
-        // se vocês tiverem exceções específicas (AlunoNaoEncontradoException etc), melhor ainda
-        return ResponseEntity.status(HttpStatus.NOT_FOUND)
-            .body(Map.of("error", ex.getMessage()));
-    }
-
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<Map<String, String>> handleGeneric(Exception ex) {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-            .body(Map.of("error", "Erro interno no servidor"));
-    }
-}
-
-📝 Justificativa técnica
-
-O projeto possui tratamento de erro espalhado em vários controllers, com try/catch repetitivo, printStackTrace() e respostas inconsistentes. Centralizar o tratamento com @RestControllerAdvice melhora padronização das respostas, reduz duplicação, evita vazamento de detalhes internos e facilita manutenção (mudança de regra em um único ponto).
