@@ -13,6 +13,7 @@
 - **Integrantes do outro grupo:** Cauê Afonso Moraes, Thomas Ramos de Oliveira, Vinicius Gomes Rodrigues e Vitor Veiga Silva
 - **Link do repositório:** (https://github.com/vitorveigas/Sistema-de-moeda-estudantil)
 - **Pull requests submetidos pelo seu grupo:**
+(https://github.com/vitorveigas/Sistema-de-moeda-estudantil/pull/2)
 
 ## 🧱 3. Arquitetura e Tecnologias Utilizadas
 
@@ -148,7 +149,7 @@ Recomenda-se fortalecer a segurança do sistema com a utilização de Spring Val
 6. Automação e CI/CD
 Como melhoria final, sugere-se a criação de uma pipeline de CI/CD com GitHub Actions, automatizando a execução de testes, análise estática de código, verificação de segurança das dependências e build da aplicação a cada Pull Request. Isso aumenta a confiabilidade do projeto, reduz falhas em produção e incentiva boas práticas de engenharia de software.
 
-## 🔧 6. Refatorações Propostas (3 partes do código)
+## 🔧 6. Refatorações Propostas
 
 🔧 Refatoração 1 – Extração de Método (Extract Method)
 
