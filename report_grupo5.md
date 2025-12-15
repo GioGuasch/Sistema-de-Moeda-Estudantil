@@ -159,11 +159,11 @@ Tipo de refatoração aplicada:
 Extract Method
 
 Link do Pull Request:
-(inserir link do PR aqui)
+(https://github.com/vitorveigas/Sistema-de-moeda-estudantil/pull/2)
 
 🔴 Código Antes
 
-document.getElementById('loginForm').addEventListener('submit', async (e) => {
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     showLoading(true);
 
@@ -198,57 +198,216 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
     } finally {
         showLoading(false);
     }
-});
+    });
 
 🟢 Código Depois
 
-async function postJson(url, payload) {
-    const response = await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+    async function postJson(url, payload) {
+      const response = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+      });
+
+      const data = await response.json();
+      return { response, data };
+    }
+
+    function persistAuth(data) {
+      currentToken = data.token;
+      currentUserType = data.userType;
+      localStorage.setItem('token', currentToken);
+      localStorage.setItem('userType', currentUserType);
+    }
+
+    function handleAuthRedirect(userType, successMsg) {
+      showMessage(successMsg);
+      setTimeout(() => {
+    window.location.href = redirectByUserType(userType);
+      }, 800);
+    }
+
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      showLoading(true);
+
+      const email = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
+
+      try {
+    const { response, data } = await postJson(`${API_BASE}/auth/login`, { email, password });
+
+    if (response.ok) {
+      persistAuth(data);
+      handleAuthRedirect(data.userType, 'Login realizado com sucesso!');
+    } else {
+      showMessage(data.error || 'Erro no login', 'error');
+    }
+      } catch (error) {
+    showMessage('Erro de conexão', 'error');
+      } finally {
+    showLoading(false);
+      }
     });
 
-    const data = await response.json().catch(() => ({}));
-    return { response, data };
-}
+✔ Tipo de refatoração aplicada
 
-function handleAuthSuccess(data, successMessage) {
-    currentToken = data.token;
-    currentUserType = data.userType;
+Extract Method
 
-    localStorage.setItem('token', currentToken);
-    localStorage.setItem('userType', currentUserType);
+📝 Justificativa técnica
 
-    showMessage(successMessage);
+Havia repetição e acoplamento entre: envio da requisição (fetch), parse de resposta (response.json), persistência do token/userType e redirecionamento.
+Ao extrair métodos (postJson, persistAuth, handleAuthRedirect), o código fica mais legível, reutilizável (pode ser usado também no cadastro), reduz duplicação e melhora testabilidade/manutenção.
 
-    setTimeout(() => {
-        window.location.href = redirectByUserType(currentUserType);
-    }, 800);
-}
 
-document.getElementById('loginForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    showLoading(true);
+🔧 Refatoração 2 – Remoção de Magic String + Extração de Constantes/Validações (Introduce Constant / Extract Method)
 
-    const email = document.getElementById('loginEmail').value;
-    const password = document.getElementById('loginPassword').value;
+Arquivo e localização: src/main/java/com/lab/sistema_de_moedas/service/JwtService.java — classe JwtService (métodos getSigningKey, createToken, validateToken)
 
-    try {
-        const { response, data } = await postJson(
-            `${API_BASE}/auth/login`,
-            { email, password }
-        );
+Tipo de refatoração aplicada:
 
-        if (response.ok) {
-            handleAuthSuccess(data, 'Login realizado com sucesso!');
-        } else {
-            showMessage(data.error || 'Erro no login', 'error');
-        }
-    } catch {
-        showMessage('Erro de conexão', 'error');
-    } finally {
-        showLoading(false);
+Introduce Constant (remover “magic default secret” do @Value)
+
+Extract Method (validação do token / normalização do secret)
+
+Replace Magic Number / Improve Naming (clareza em tempo e algoritmo)
+
+Link do Pull Request: (https://github.com/vitorveigas/Sistema-de-moeda-estudantil/pull/2)
+
+🔴 Código Antes
+
+    @Value("${jwt.secret:mySecretKey123456789012345678901234567890}")
+    private String secret;
+
+    @Value("${jwt.expiration:86400000}")
+    private Long expiration;
+
+    private SecretKey getSigningKey() {
+    return Keys.hmacShaKeyFor(secret.getBytes());
     }
-});
 
+    private Boolean isTokenExpired(String token) {
+    return extractExpiration(token).before(new Date());
+    }
+
+    private String createToken(Map<String, Object> claims, String subject) {
+    return Jwts.builder()
+            .setClaims(claims)
+            .setSubject(subject)
+            .setIssuedAt(new Date(System.currentTimeMillis()))
+            .setExpiration(new Date(System.currentTimeMillis() + expiration))
+            .signWith(getSigningKey(), SignatureAlgorithm.HS256)
+            .compact();
+    }
+
+    public Boolean validateToken(String token, String username) {
+    final String extractedUsername = extractUsername(token);
+    return (extractedUsername.equals(username) && !isTokenExpired(token));
+    }
+
+🟢 Código Depois
+
+    package com.lab.sistema_de_moedas.service;
+
+    import io.jsonwebtoken.Claims;
+    import io.jsonwebtoken.Jwts;
+    import io.jsonwebtoken.SignatureAlgorithm;
+    import io.jsonwebtoken.security.Keys;
+    import org.springframework.beans.factory.annotation.Value;
+    import org.springframework.stereotype.Service;
+
+    import javax.crypto.SecretKey;
+    import java.nio.charset.StandardCharsets;
+    import java.util.Date;
+    import java.util.HashMap;
+    import java.util.Map;
+    import java.util.function.Function;
+
+    @Service
+    public class JwtService {
+
+    @Value("${jwt.secret}")
+    private String secret;
+
+    @Value("${jwt.expiration:86400000}")
+    private long expirationMs;
+
+    private static final SignatureAlgorithm SIGN_ALG = SignatureAlgorithm.HS256;
+
+    private SecretKey getSigningKey() {
+        validateSecret(secret);
+        return Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
+    }
+
+    private void validateSecret(String secret) {
+        if (secret == null || secret.isBlank()) {
+            throw new IllegalStateException("JWT secret não configurado (jwt.secret)");
+        }
+        // HS256 exige chave com tamanho mínimo seguro (biblioteca costuma exigir >= 256 bits)
+        if (secret.getBytes(StandardCharsets.UTF_8).length < 32) {
+            throw new IllegalStateException("JWT secret muito curto. Use pelo menos 32 bytes.");
+        }
+    }
+
+    public String extractUsername(String token) {
+        return extractClaim(token, Claims::getSubject);
+    }
+
+    public Date extractExpiration(String token) {
+        return extractClaim(token, Claims::getExpiration);
+    }
+
+    public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
+        final Claims claims = extractAllClaims(token);
+        return claimsResolver.apply(claims);
+    }
+
+    private Claims extractAllClaims(String token) {
+        return Jwts.parserBuilder()
+                .setSigningKey(getSigningKey())
+                .build()
+                .parseClaimsJws(token)
+                .getBody();
+    }
+
+    private boolean isTokenExpired(String token) {
+        return extractExpiration(token).before(now());
+    }
+
+    private Date now() {
+        return new Date();
+    }
+
+    public String generateToken(String username) {
+        return createToken(new HashMap<>(), username);
+    }
+
+    private String createToken(Map<String, Object> claims, String subject) {
+        final long nowMs = System.currentTimeMillis();
+        return Jwts.builder()
+                .setClaims(claims)
+                .setSubject(subject)
+                .setIssuedAt(new Date(nowMs))
+                .setExpiration(new Date(nowMs + expirationMs))
+                .signWith(getSigningKey(), SIGN_ALG)
+                .compact();
+    }
+
+    public boolean validateToken(String token, String username) {
+        if (token == null || token.isBlank() || username == null || username.isBlank()) {
+            return false;
+        }
+        final String extractedUsername = extractUsername(token);
+        return username.equals(extractedUsername) && !isTokenExpired(token);
+    }
+    }
+
+✅ Justificativa técnica
+
+Segurança: remover o default secret hardcoded (@Value("${jwt.secret:...}")) evita rodar produção com uma chave conhecida e fraca por acidente.
+
+Robustez: validação explícita do secret e inputs no validateToken evita NPE e falhas silenciosas.
+
+Legibilidade/manutenção: constantes (SIGN_ALG) e nomes (expirationMs) deixam claro o que é milissegundos e reduzem “magic values”.
+
+Testabilidade: now() separado facilita testes (se quiser mockar tempo no futuro).
