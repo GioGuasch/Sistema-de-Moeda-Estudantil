@@ -193,11 +193,11 @@ https://www.youtube.com/watch?v=TrXJlPXeV6I
 ## Configuração de envio de e-mails:
 
 1️⃣ Envio de e-mail ao confirmar um resgate de vantagem:
-<img width="500" height="500" alt="Fluxo de implementção do QRCode" src="https://github.com/GioGuasch/Sistema-de-Moeda-Estudantil/blob/main/01.Documentacao/confirmacao-resgate-aluno.jpg" />
+<img width="600" height="500" alt="Fluxo de implementção do QRCode" src="https://github.com/GioGuasch/Sistema-de-Moeda-Estudantil/blob/main/01.Documentacao/confirmacao-resgate-aluno.jpg" />
 
 2️⃣ Envio de e-mail quando o professor envia uma moedas:
-<img width="500" height="500" alt="Fluxo de implementção do QRCode" src="https://github.com/GioGuasch/Sistema-de-Moeda-Estudantil/blob/main/01.Documentacao/confirmacao-envio-moedas-prof.jpg" />
+<img width="600" height="500" alt="Fluxo de implementção do QRCode" src="https://github.com/GioGuasch/Sistema-de-Moeda-Estudantil/blob/main/01.Documentacao/confirmacao-envio-moedas-prof.jpg" />
 
 3️⃣ Quando o aluno recebe as moedas: 
-<img width="500" height="500" alt="Fluxo de implementção do QRCode" src="https://github.com/GioGuasch/Sistema-de-Moeda-Estudantil/blob/main/01.Documentacao/confirmacao-recebeu-moedas-aluno.jpg" />
+<img width="600" height="500" alt="Fluxo de implementção do QRCode" src="https://github.com/GioGuasch/Sistema-de-Moeda-Estudantil/blob/main/01.Documentacao/confirmacao-recebeu-moedas-aluno.jpg" />
 
