@@ -190,6 +190,10 @@ https://www.youtube.com/watch?v=TrXJlPXeV6I
 
 ## Link do vercel: 
 
-## Implementação do QRCode: 
+## Configuração de envio de e-mails:
+
+1️⃣ Envio de e-mail ao confirmar um resgate de vantagem:
 <img alt="Fluxo de implementção do QRCode" src="" />
 
+2️⃣ Envio de e-mail quando o professor envia uma mensagem
+<img alt="Fluxo de implementção do QRCode" src="" />
