@@ -90,25 +90,24 @@ HS18 - Login e autenticação
 
 ## Diagrama de Sequências
 
-01. 
+01. Fluxo de aluno resgata vantagem:
 <img alt="Fluxo Aluno Resgata Vantagem" src="https://github.com/GioGuasch/Sistema-de-Moeda-Estudantil/blob/main/01.Documentacao/Fluxo%20-%20Aluno%20Resgata%20Vantagem%20(HS05).png" />
 
-02.
+02. Fluxo empresa cadastra vantagem:
 <img alt="Fluxo Empresa Cadastra Vantagem" src="https://github.com/GioGuasch/Sistema-de-Moeda-Estudantil/blob/main/01.Documentacao/Fluxo%20-%20Empresa%20Cadastra%20Vantagem%20(HS14).png" />
  
-03.
+03. Fluxo do professor distribuidos moedas: 
 <img alt="Fluxo Login de Usuario" src="https://github.com/GioGuasch/Sistema-de-Moeda-Estudantil/blob/main/01.Documentacao/Fluxo%20-%20Professor%20Distribui%20Moedas%20(HS10).png" />
 
-04.
+04. Fluxo de login de usuários:
 <img alt="Fluxo Professor Distribui Moeda" src="https://github.com/GioGuasch/Sistema-de-Moeda-Estudantil/blob/main/01.Documentacao/Fluxo%20de%20Login%20de%20Usuário%20(HS18).png" />
 
-\## Diagrama de Comunicação
-
+## Diagrama de Comunicação
 <img alt="Diagrama - Classes - Sistema de Moeda Estudantil" src="https://github.com/GioGuasch/Sistema-de-Moeda-Estudantil/blob/main/01.Documentacao/ComunicacaoEnvioCupons.png" />
 
-\## Diagrama de Implementação
-
+## Diagrama de Implementação
 <img alt="Diagrama - Classes - Sistema de Moeda Estudantil" src="https://github.com/GioGuasch/Sistema-de-Moeda-Estudantil/blob/main/01.Documentacao/Implementação.png" />
+
 
 ## 🗄️ Como executar o Banco de Dados
 
@@ -154,7 +153,6 @@ Faça o passo de execução do banco de dados que está logo no começo dessa in
 
 
 2️⃣ Backend
-
 Coloque a pasta "cd 03. Codigos/backend"  do projeto da pasta WWWW 
 Abra uma aba no google e busque por localhost
 E abra o projeto desejado. 
@@ -162,7 +160,6 @@ E abra o projeto desejado.
 E pronto, está rodando o back!! 
 
 3️⃣ Frontend
-
 Vá até a pasta: 'cd 03. Codigos/frontend', coloque-a dentro da pasta WWW
 Abra uma aba no google e busque por localhost
 E abra o projeto desejado. 
@@ -174,23 +171,25 @@ O sistema abrirá em http://localhost
 ## Como utilizar o sistema?
 
 1️⃣ Tipo de usuário: PROFESSOR 
-
 Nesse caso, o professor terá acesso a página de login e de cadastro, caso seja um novo professor. Após isso, a primeira página é a de inicio, onde ele consegue ver a quantidade de moedas disponiveis, um menu e um icone de perfil. 
 Este icone de perfil leva a página de edição de informações cadastradas, caso necessário. 
 No menu, temos a opção de voltar ao inicio, enviar moedas aos alunos, onde pode ser cadastrado novos envios, e por fim, a tela de visualizar o extrato onde deve ser visto tudo que foi enviado ao alunos e gerar um relatório dessas informações. 
 
-
 2️⃣ Tipo de usuário: ALUNO 
-
 Nesse caso, o aluno terá acesso a página de login e de cadastro, caso seja um novo aluno. Após isso, a primeira página é a de inicio, onde ele consegue ver a quantidade de moedas disponiveis, um menu e um icone de perfil. 
 Este icone de perfil leva a página de edição de informações cadastradas, caso necessário. 
 No menu, temos a opção de voltar ao inicio, resgatar novas vantagens, onde pode ser resgatado qualquer coisa que seja menor ou igual a quantidade de moedas disponiveis, e por fim, a tela de visualizar o extrato onde deve ser visto tudo que foi resgatado. 
 
 3️⃣ Tipo de usuário: EMPRESA PARCEIRA 
-
 Nesse caso, a empresa parceira terá acesso a página de login e de cadastro, caso seja uma nova empresa. Após isso, a primeira página é a de inicio, onde ela consegue ver as instituições onde ela faz parte, um menu e um icone de perfil. 
 Este icone de perfil leva a página de edição de informações cadastradas, caso necessário. 
 No menu, temos a opção de voltar ao inicio, cadastrar novas vantagens que ficará disponivel aos alunos, e por fim, a tela de visualizar o extrato onde deve ser visto tudo que foi resgatado na sua empresa e gerar um relatório dessas informações. 
 
-## APRESENTAÇÃO DO SISTEMA:
+## Apresentação do sistema:
 https://www.youtube.com/watch?v=TrXJlPXeV6I
+
+## Link do vercel: 
+
+## Implementação do QRCode: 
+<img alt="Fluxo de implementção do QRCode" src="" />
+
