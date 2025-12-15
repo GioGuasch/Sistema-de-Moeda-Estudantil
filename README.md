@@ -189,6 +189,7 @@ No menu, temos a opção de voltar ao inicio, cadastrar novas vantagens que fica
 https://www.youtube.com/watch?v=TrXJlPXeV6I
 
 ## Link do vercel: 
+https://sistema-moedas.vercel.app/
 
 ## Configuração de envio de e-mails:
 
