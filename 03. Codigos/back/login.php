@@ -9,7 +9,7 @@ if (!$dados) {
     echo json_encode(["status" => "erro", "mensagem" => "Requisição inválida."]);
     exit;
 }
-
+ 
 $tipo  = trim($dados["tipo"] ?? "");
 $email = trim($dados["email"] ?? "");
 $senha = trim($dados["senha"] ?? "");
