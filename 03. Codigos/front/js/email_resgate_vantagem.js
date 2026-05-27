@@ -18,7 +18,7 @@ function mostrarModal(msg) {
     modal.style.transition = "opacity 0.3s";
     document.body.appendChild(modal);
   }
-
+ 
   modal.innerHTML = msg;
   modal.style.opacity = "1";
 
