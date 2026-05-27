@@ -9,7 +9,7 @@ input.addEventListener("keyup", () => {
         card.style.display = titulo.includes(filtro) ? "" : "none";
     });
 });
-
+ 
 async function carregarVantagens() {
     try {
         const resposta = await fetch("../../back/listarVantagens.php");
