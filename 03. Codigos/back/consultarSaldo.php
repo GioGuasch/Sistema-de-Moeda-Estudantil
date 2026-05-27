@@ -3,7 +3,7 @@ header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json");
 
 include("conexao.php");
-
+ 
 $codigoAluno = $_POST["codigoAluno"] ?? null;
 
 if (!$codigoAluno) {
