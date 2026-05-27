@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("formMoedas");
 
   if (!form) return;
-
+ 
   form.addEventListener("submit", function () {
 
     const nomeAluno = document.getElementById("nomeAluno")?.value.trim();
