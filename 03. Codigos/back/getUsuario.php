@@ -9,7 +9,7 @@ if (!isset($_SESSION["id_usuario"])) {
     echo json_encode(["status" => "erro", "mensagem" => "Usuário não logado"]);
     exit;
 }
-
+ 
 $id = $_SESSION["id_usuario"];
 
 $sql = $conexao->prepare("SELECT * FROM usuarios WHERE id = ?");
