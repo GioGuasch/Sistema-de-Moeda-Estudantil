@@ -16,7 +16,7 @@ if (!$idVantagem || !$codigoAluno) {
     ]);
     exit;
 }
-
+ 
 $stmt = $conn->prepare("SELECT idAluno FROM Alunos WHERE idAluno = ?");
 $stmt->bind_param("i", $codigoAluno);
 $stmt->execute();
