@@ -10,7 +10,7 @@ if (!$conn) {
     echo json_encode([]);
     exit;
 }
-
+  
 $query = "SELECT * FROM Alunos";
 $result = mysqli_query($conn, $query);
 

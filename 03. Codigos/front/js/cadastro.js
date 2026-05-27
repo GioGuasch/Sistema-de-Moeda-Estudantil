@@ -13,7 +13,7 @@ function toggleSenha(id, iconId) {
     icon.src = "../img/olhoFechado.png";
   }
 }
-
+ 
 // ========================
 // FUNÇÕES DE MÁSCARA
 // ========================

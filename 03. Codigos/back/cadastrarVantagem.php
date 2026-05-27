@@ -11,7 +11,7 @@ if (!isset($_FILES["img"])) {
     ]);
     exit;
 }
-
+ 
 $nome = $_POST["nome"] ?? "";
 $valor = $_POST["valor"] ?? "";
 $status = $_POST["status"] ?? "";

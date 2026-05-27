@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("Digite seu código!");
             return;
         }
-
+ 
         try {
             const resposta = await fetch("../../back/consultarSaldo.php", {
                 method: "POST",

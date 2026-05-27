@@ -13,7 +13,7 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $conteudo .= "{$row['id']} | {$row['idAluno']} | {$row['nomeSobrenomeAluno']} | {$row['data']} | {$row['motivo']} | {$row['quantidadeMoedas']}\n";
     }
-
+ 
     // Define os headers para download
     header("Content-Type: text/plain");
     header("Content-Disposition: attachment; filename=relatorio_moedas.txt");

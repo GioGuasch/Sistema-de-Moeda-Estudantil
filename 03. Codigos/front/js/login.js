@@ -4,7 +4,7 @@
 function mostrarModal(msg, duracao = 1500) { // duração em ms
   const modal = document.getElementById("modalSucesso");
   if (!modal) return;
-
+ 
   modal.querySelector("p").innerHTML = msg;
   modal.style.display = "flex";
   modal.style.opacity = 0;

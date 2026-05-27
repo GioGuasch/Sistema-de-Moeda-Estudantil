@@ -4,7 +4,7 @@ document.querySelectorAll('.faq-question').forEach(btn => {
         answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
     });
 });
-
+ 
 const userIcon = document.getElementById("userIcon");
 const userDropdown = document.getElementById("userDropdown");
 

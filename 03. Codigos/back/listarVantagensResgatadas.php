@@ -10,7 +10,7 @@ if (!$idAluno) {
     echo json_encode(["status" => "erro", "mensagem" => "ID do aluno não informado"]);
     exit;
 }
-
+ 
 $sql = "SELECT id, moedasUsadas, data 
         FROM VantagemResgatadaAluno 
         WHERE idAluno = ?

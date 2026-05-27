@@ -3,7 +3,7 @@ $servidor = "localhost";
 $usuario = "root";
 $senha = "";
 $banco = "Moedas";
-
+ 
 $conn = new mysqli($servidor, $usuario, $senha, $banco);
 
 if ($conn->connect_error) {
