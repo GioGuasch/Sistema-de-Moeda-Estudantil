@@ -4,7 +4,7 @@ header("Access-Control-Allow-Headers: Content-Type");
 header("Content-Type: application/json; charset=UTF-8");
 
 include("conexao.php");
-
+ 
 $dados = $_POST;
 
 $tipo = $dados["tipoUsuario"] ?? '';
