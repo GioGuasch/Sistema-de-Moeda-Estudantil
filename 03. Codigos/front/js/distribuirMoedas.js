@@ -8,7 +8,7 @@ function mostrarModal(msg, duracao = 1000) {
   modal.innerHTML = `<p>${msg}</p>`;
   modal.style.display = "flex";
   modal.style.opacity = 1;
-
+ 
   setTimeout(() => {
     modal.style.opacity = 0;
     setTimeout(() => modal.style.display = "none", 300); // fade out suave
